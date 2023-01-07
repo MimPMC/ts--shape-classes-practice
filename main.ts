@@ -1,6 +1,6 @@
  abstract class Shape {
     protected color: string;
-    abstract calculateArea(): number; 
+    public abstract calculateArea(): number; 
     constructor(color:string) {
         this.color=color;
     }
@@ -15,7 +15,7 @@ class Rectangle extends Shape {
         this.width = width;
         this.height = height;
     }
-    calculateArea(): number {
+    public calculateArea(): number {
         return this.width * this.height     
     } 
 }
@@ -27,19 +27,19 @@ class Circle extends Shape {
         super('white');
         this.radius = radius;
     }
-    calculateArea(): number {
+    public calculateArea(): number {
         return this.radius* this.radius* Math.PI
     }
 }
 
 class HalfCircle extends Circle {
-    calculateArea(): number {
+    public calculateArea(): number {
         return this.radius* this.radius* Math.PI/2
     }
 }
 
 class Triangle extends Rectangle {
-    calculateArea(): number {
+    public calculateArea(): number {
         return this.height*this.width /2
     }
 }
@@ -62,3 +62,15 @@ console.log(halfcircle1.calculateArea())
 console.log(rectangle1.calculateArea(),);
 console.log(rectangle2.calculateArea());
 
+const shapes: Shape[] = [
+  new Circle(4),
+  new Circle(12),
+  new Rectangle(1, 2),
+  new Rectangle(4, 9),
+  new Triangle(4,9)
+];
+
+console.log("bryt")
+for (const shape of shapes){
+    console.log(shape.calculateArea())
+}
