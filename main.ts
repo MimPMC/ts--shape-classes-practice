@@ -1,3 +1,4 @@
+//abstraction
  abstract class Shape {
     protected color: string;
     public abstract calculateArea(): number; 
@@ -5,7 +6,7 @@
         this.color=color;
     }
 } 
-
+//arv
 class Rectangle extends Shape {
     protected width: number ;
     protected height: number ;
@@ -21,6 +22,7 @@ class Rectangle extends Shape {
 }
 
 class Circle extends Shape {
+    //inkapsulering
     protected radius: number;
 
     constructor(radius:number) {
@@ -62,6 +64,7 @@ console.log(halfcircle1.calculateArea())
 console.log(rectangle1.calculateArea(),);
 console.log(rectangle2.calculateArea());
 
+//polymorfism
 const shapes: Shape[] = [
   new Circle(4),
   new Circle(12),
