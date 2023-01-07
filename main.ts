@@ -4,7 +4,6 @@
     constructor(color:string) {
         this.color=color;
     }
-
 } 
 
 class Rectangle extends Shape {
@@ -22,7 +21,7 @@ class Rectangle extends Shape {
 }
 
 class Circle extends Shape {
-    private radius: number;
+    protected radius: number;
 
     constructor(radius:number) {
         super('white');
@@ -33,11 +32,18 @@ class Circle extends Shape {
     }
 }
 
+class HalfCircle extends Circle {
+    calculateArea(): number {
+        return this.radius* this.radius* Math.PI/2
+    }
+}
+
 class Triangle extends Rectangle {
     calculateArea(): number {
         return this.height*this.width /2
     }
 }
+
 
 //MAIN
 
@@ -46,11 +52,13 @@ const rectangle2 = new Rectangle(10,12);
 const circle1 = new Circle(4)
 const circle2 = new Circle(8)
 const triangle1 = new Triangle(2,5)
+const halfcircle1 = new HalfCircle(8)
 
 
 console.log(triangle1.calculateArea())
 console.log(circle1.calculateArea())
 console.log(circle2.calculateArea())
+console.log(halfcircle1.calculateArea())
 console.log(rectangle1.calculateArea(),);
 console.log(rectangle2.calculateArea());
 
